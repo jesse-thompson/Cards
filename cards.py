@@ -68,6 +68,7 @@ class Hand:
     def add(self, card):
         self.card.append(card)
 
+    # TODO: create_deck (separate from Hand class?)
     #creates a deck of 52 cards
     def create_deck(self):
         Deck
@@ -76,13 +77,12 @@ class Hand:
     def shuffle_deck(self):
         random.shuffle(self.card)
 
+    # TODO: get_card
     #returns the top card from the deck, each call returns the next card in order
     def get_card(self):
 
 
 
-#TODO: create_deck (separate from Hand class?)
-#TODO: get_card
 #TODO: create test(s)
 hand = Hand(5)
 hand.print_hand()
