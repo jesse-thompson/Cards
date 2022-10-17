@@ -39,3 +39,22 @@ class Hand:
                 new_card = Card(card_value, card_suit)
                 self.add(new_card)
 
+    def print_hand(self):
+        for card in self.card:
+            print(card)
+
+    def add(self, card):
+        self.card.append(card)
+
+    def create_deck(self):
+
+
+    def shuffle_deck(self):
+        random.shuffle(self.card)
+
+    def get_card(self):
+
+
+
+hand = Hand(5)
+hand.print_hand()
