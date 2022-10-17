@@ -4,14 +4,17 @@ import random
 # class for the rank of the card: 2-10, Jack, King, Queen, Ace
 class Rank:
     value = None
+    values = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
 
-    def __init__(self, number):
-        self.value = number
+    def __init__(self, rank_value, icon):
+        self.rank_value = rank_value
+        self.icon = icon
 
 
 # class for the suit of the card: Spade, Heart, Diamond, Club
 class Suit:
     card_suit = None
+    suits = ['Spades', 'Hearts', 'Clubs', 'Diamonds']
 
     def __init__(self, suit_name):
         self.card_suit = suit_name
@@ -19,15 +22,12 @@ class Suit:
 
 # class to make a card using rank and suit
 class Card:
-    rank = None
-    suit = None
-
     def __init__(self, rank, suit):
         self.rank = rank
         self.suit = suit
 
     def __str__(self):
-        return 'rank: {} of suit: {}'.format(self.rank.value, self.suit.card_suit)
+        return '{} of {}'.format(self.rank.icon, self.suit)
 
 
 # class for the deck of 52 cards
