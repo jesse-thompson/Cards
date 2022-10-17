@@ -1,6 +1,7 @@
 import random
 
-#class for the rank of the card: 2-10, Jack, King, Queen, Ace
+
+# class for the rank of the card: 2-10, Jack, King, Queen, Ace
 class Rank:
     value = None
 
@@ -8,7 +9,7 @@ class Rank:
         self.value = number
 
 
-#class for the suit of the card: Spade, Heart, Diamond, Club
+# class for the suit of the card: Spade, Heart, Diamond, Club
 class Suit:
     card_suit = None
 
@@ -16,7 +17,7 @@ class Suit:
         self.card_suit = suit_name
 
 
-#class to make a card using rank and suit
+# class to make a card using rank and suit
 class Card:
     rank = None
     suit = None
@@ -29,7 +30,7 @@ class Card:
         return 'rank: {} of suit: {}'.format(self.rank.value, self.suit.card_suit)
 
 
-#class for the deck of 52 cards
+# class for the deck of 52 cards
 class Deck:
     card = None
 
@@ -43,13 +44,24 @@ class Deck:
                 new_card = Card(card_value, card_suit)
                 self.add(new_card)
 
-    #adds card to deck
+    # adds card to deck
     def add(self, card):
         self.card.append(card)
 
+    # creates a deck of 52 cards
+    def create_deck(self):
+        return self
 
-#TODO: finish Hand
-#class to create a hand, accepting various sizes
+    # shuffles the current deck, rearranging them in a random order
+    def shuffle_deck(self):
+        random.shuffle(self)
+
+    # returns the top card from the deck, each call returns the next card in order
+    def get_card(self):
+        return self.card.pop()
+
+
+# class to create a hand, accepting various sizes
 class Hand:
     card = None
 
@@ -57,33 +69,19 @@ class Hand:
         self.card = []
 
         for i in range(0, size + 1):
-            self.add(self.get_card())
+            self.add(Deck.get_card())
 
-
-    #prints the current hand
+    # prints the current hand
     def print_hand(self):
         for card in self.card:
             print(card)
 
-    #adds a card to the hand
+    # adds a card to the hand
     def add(self, card):
         self.card.append(card)
 
-    # TODO: create_deck (separate from Hand class?)
-    #creates a deck of 52 cards
-    def create_deck(self):
-        Deck
 
-    #shuffles the current deck, rearranging them in a random order
-    def shuffle_deck(self):
-        random.shuffle(self.card)
-
-    # TODO: get_card
-    #returns the top card from the deck, each call returns the next card in order
-    def get_card(self):
-
-
-
-#TODO: create test(s)
+deck = Deck.create_deck()
+deck.shuffle_deck()
 hand = Hand(5)
 hand.print_hand()
