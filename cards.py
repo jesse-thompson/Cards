@@ -29,7 +29,6 @@ class Card:
         return 'rank: {} of suit: {}'.format(self.rank.value, self.suit.card_suit)
 
 
-#TODO: finish Deck
 #class for the deck of 52 cards
 class Deck:
     card = None
@@ -37,14 +36,16 @@ class Deck:
     def __init__(self):
         self.card = []
 
-        # TODO: figure out card_value
-        # TODO: figure out card_suit
-        for rank in range(0, 53):
-            for suit in range(rank, 53):
-                card_value =
-                card_suit =
+        for rank in range(0, 52):
+            for suit in range(rank, 52):
+                card_value = Rank(rank)
+                card_suit = Suit(suit)
                 new_card = Card(card_value, card_suit)
                 self.add(new_card)
+
+    #adds card to deck
+    def add(self, card):
+        self.card.append(card)
 
 
 #TODO: finish Hand
