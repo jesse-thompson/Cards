@@ -81,7 +81,7 @@ class Hand:
         self.card.append(card)
 
 
-deck = Deck.create_deck()
+deck = Deck.create_deck(self=Deck)
 deck.shuffle_deck()
 hand = Hand(5)
 hand.print_hand()
