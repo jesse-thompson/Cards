@@ -68,36 +68,36 @@ class Deck:
     def create_deck(self):
         return self.deck_of_cards
 
-    # shuffles the current deck, rearranging them in a random order
-    def shuffle_deck(self, deck_to_shuffle):
-        random.shuffle(deck_to_shuffle)
-
-    # returns the top card from the deck, each call returns the next card in order
-    def get_card(self):
-        top_card = self.deck_of_cards[0]
-        self.deck_of_cards = self.deck_of_cards[1:]
-        return top_card
-
 
 # class to create a hand, accepting various sizes
 class Hand:
     def __init__(self, size):
-        self.card = []
+        self.hand_of_cards = []
 
         for i in range(0, size + 1):
             self.add(Deck.get_card())
 
     # prints the current hand
     def print_hand(self):
-        for card in self.card:
+        for card in self.hand_of_cards:
             print(card)
 
     # adds a card to the hand
     def add(self, card):
-        self.card.append(card)
+        self.hand_of_cards.append(card)
+
+    # shuffles the current deck, rearranging them in a random order
+    def shuffle_deck(self, deck_to_shuffle):
+        random.shuffle(deck_to_shuffle)
+
+    # returns the top card from the deck, each call returns the next card in order
+    def get_card(deck):
+        top_card = deck[0]
+        deck = deck[1:]
+        return top_card
 
 
-deck = Deck.create_deck()
-deck.shuffle_deck()
+deck = Deck()
+
 hand = Hand(5)
 hand.print_hand()
