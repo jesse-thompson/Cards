@@ -25,6 +25,11 @@ class Card:
         return '{} of {}'.format(self.rank.icon, self.suit.card_suit)
 
 
+# shuffles the current deck, rearranging them in a random order
+def shuffle_deck(deck_to_shuffle):
+    random.shuffle(deck_to_shuffle)
+
+
 # class for the deck of 52 cards
 class Deck:
     card_rank = None
@@ -68,6 +73,12 @@ class Deck:
     def create_deck(self):
         return self.deck_of_cards
 
+    # returns the top card from the deck, each call returns the next card in order
+    def get_card(self):
+        top_card = self.deck_of_cards[0]
+        self.deck_of_cards = self.deck_of_cards[1:]
+        return top_card
+
 
 # class to create a hand, accepting various sizes
 class Hand:
@@ -75,7 +86,8 @@ class Hand:
         self.hand_of_cards = []
 
         for i in range(0, size + 1):
-            self.add(Deck.get_card())
+            new_card = Deck.get_card()
+            self.add(new_card)
 
     # prints the current hand
     def print_hand(self):
@@ -86,18 +98,8 @@ class Hand:
     def add(self, card):
         self.hand_of_cards.append(card)
 
-    # shuffles the current deck, rearranging them in a random order
-    def shuffle_deck(self, deck_to_shuffle):
-        random.shuffle(deck_to_shuffle)
 
-    # returns the top card from the deck, each call returns the next card in order
-    def get_card(deck):
-        top_card = deck[0]
-        deck = deck[1:]
-        return top_card
-
-
-deck = Deck()
-
+deck = Deck.create_deck()
+shuffle_deck(deck)
 hand = Hand(5)
 hand.print_hand()
