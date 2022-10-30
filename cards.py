@@ -74,6 +74,7 @@ class Deck:
         self.deck_of_cards = self.deck_of_cards[1:]
         return top_card
 
+    # TODO: get shuffle_deck() to work in Deck
     # shuffles the current deck, rearranging them in a random order
     def shuffle_deck(self):
         random.shuffle(self.deck_of_cards)
@@ -84,6 +85,7 @@ class Hand:
     def __init__(self, deck_in_play, size):
         self.hand_of_cards = []
 
+        # TODO: get new_card in Hand to work with get_card() in Deck
         for i in range(0, size + 1):
             new_card = deck_in_play.get_card()
             self.add(new_card)
@@ -101,4 +103,4 @@ class Hand:
 deck = Deck
 deck.shuffle_deck()
 hand = Hand(deck, 5)
-hand.print_hand()
+hand.print_hand()   # TODO: probably will need to figure out why this won't work when the others get working

@@ -13,3 +13,5 @@ Feature: testing all card classes
     Given I have a deck of cards
     When I shuffle them
     Then the order has changed
+
+    # TODO: finish .feature

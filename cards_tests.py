@@ -1,6 +1,7 @@
 from behave import *
 import cards
 
+# TODO: make all tests
 
 @Given('I have created a new card object')
 def step_impl(context):
