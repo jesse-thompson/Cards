@@ -78,5 +78,7 @@ class Hand:
 
 deck = Deck()
 deck.shuffle_deck()
+print(deck.deck_of_cards.__len__())
 hand = Hand(deck, 5)
 hand.print_hand()
+print(hand.hand_of_cards.__len__())

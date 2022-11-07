@@ -1,6 +1,6 @@
 Feature: testing all card classes
   Scenario: test that card values are recorded correctly
-    Given I have created a new card object
+    Given I have created a new deck object
     When I create the new class
     Then the card value should be recorded
 
@@ -14,4 +14,7 @@ Feature: testing all card classes
     When I shuffle them
     Then the order has changed
 
-    # TODO: finish .feature
+  Scenario: building a hand records correctly
+    Given I have a deck of cards
+    When I add a card to my hand
+    Then my hand increases by 1 card
