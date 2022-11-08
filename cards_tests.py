@@ -55,7 +55,7 @@ def step_impl(context):
     assert context.before_shuffle != context.after_shuffle
 
 
-@Given('I have a deck of cards')
+@Given('I have a new deck of cards')
 def step_impl(context):
     context.new_deck = cards.Deck
 
@@ -64,4 +64,8 @@ def step_impl(context):
 def step_impl(context):
     context.new_hand = cards.Hand(context.new_hand, 5)
     assert context.new_hand is not None
+
+
+@Then('my hand has 5 cards')
+def step_impl(context):
     assert context.new_hand.hand_of_cards.__len__() == 5

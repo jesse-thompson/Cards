@@ -15,6 +15,6 @@ Feature: testing all card classes
     Then the order has changed
 
   Scenario: building a hand records correctly
-    Given I have a deck of cards
+    Given I have a new deck of cards
     When I create a hand
     Then my hand has 5 cards
