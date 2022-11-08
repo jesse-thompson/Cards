@@ -1,8 +1,6 @@
 from behave import *
 import cards
 
-# TODO: make all tests
-
 
 @Given('I have created a new deck object')
 def step_impl(context):
@@ -40,14 +38,30 @@ def step_impl(context):
     assert context.new_deck.deck_of_cards.__len__() < context.num_of_cards
     assert context.drawn_card not in context.new_deck.deck_of_cards
 
-# @Given('I have a deck of cards')
-# def step_impl(context):
-#
-#
-# @When('I shuffle them')
-# def step_impl(context):
-#
-#
-# @Then('The order has changed')
-# def step_impl(context):
-#
+
+@Given('I have a deck of cards')
+def step_impl(context):
+    context.new_deck = cards.Deck
+
+
+@When('I shuffle them')
+def step_impl(context):
+    context.before_shuffle = context.new_deck
+    context.after_shuffle = context.new_deck.shuffle_deck()
+
+
+@Then('The order has changed')
+def step_impl(context):
+    assert context.before_shuffle != context.after_shuffle
+
+
+@Given('I have a deck of cards')
+def step_impl(context):
+    context.new_deck = cards.Deck
+
+
+@When('I create a hand')
+def step_impl(context):
+    context.new_hand = cards.Hand(context.new_hand, 5)
+    assert context.new_hand is not None
+    assert context.new_hand.hand_of_cards.__len__() == 5

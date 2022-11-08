@@ -16,5 +16,5 @@ Feature: testing all card classes
 
   Scenario: building a hand records correctly
     Given I have a deck of cards
-    When I add a card to my hand
-    Then my hand increases by 1 card
+    When I create a hand
+    Then my hand has 5 cards
