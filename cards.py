@@ -1,10 +1,15 @@
 import random
 
+# TODO: add error handling
+
+# 14 is Ace. May need to make a way to use it as a 1, depending on game
 ranks = [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]
 suits = ['Spades', 'Hearts', 'Clubs', 'Diamonds']
 
 
-# class to make a card using rank and suit
+# Class to make an individual card using rank and suit
+# The icon will be used for printing out, but the rank will be used for
+# deciding which card is of higher value
 class Card:
     def __init__(self, rank, icon, suit):
         self.rank = rank
@@ -15,7 +20,7 @@ class Card:
         return '{} of {}'.format(self.icon, self.suit)
 
 
-# class for the deck of 52 cards
+# Class for the deck of 52 cards
 class Deck:
     card_rank = None
     card_icon = None
@@ -76,6 +81,7 @@ class Hand:
         self.hand_of_cards.append(card)
 
 
+Deck.shuffle_deck()
 deck = Deck()
 deck.shuffle_deck()
 print(deck.deck_of_cards.__len__())
